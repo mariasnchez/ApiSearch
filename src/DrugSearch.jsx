@@ -161,7 +161,7 @@ const DrugSearch = () => {
 
         {/* Botón cargar más resultados */}
         {fullResults.length > displayResults.length && (
-          <Button variant="contained" onClick={loadMoreResults}>
+          <Button variant="contained" onClick={loadMoreResults} sx={{backgroundColor:"#7490FF"}}>
             Load More
           </Button>
         )}
