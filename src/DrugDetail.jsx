@@ -65,11 +65,11 @@ const DrugDetail = () => {
     <div style={{ maxWidth: "800px", margin: "0 auto" }}>
 
       {/* Botón volver */}
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/drug-search" style={{ textDecoration: "none" }}>
         <Button
           variant="contained"
           startIcon={<ArrowBackIcon />}
-          style={{ position: "absolute", top: 10, left: 10 }}
+          style={{ position: "absolute", top: 10, left: 10, backgroundColor:"#7490FF"}}
         >
           Back
         </Button>
@@ -77,7 +77,7 @@ const DrugDetail = () => {
 
       <h1
         style={{
-          color: "#1769aa",
+          color: "#7490FF",
           textAlign: "center",
           margin: "20px 0",
         }}
@@ -92,15 +92,18 @@ const DrugDetail = () => {
           title="Indications and Usage"
           content={drugDetail.indications_and_usage}
         />
+        <DetailSection title="Ingredients" content={drugDetail.active_ingredient} />
         <DetailSection title="Warnings" content={drugDetail.warnings} />
         <DetailSection
           title="Dosage and Administration"
           content={drugDetail.dosage_and_administration}
         />
+        <DetailSection title="Pregnancy" content={drugDetail.pregnancy_or_breast_feeding} />
+        <DetailSection title="Pregnancy" content={drugDetail.pregnancy} />
         <DetailSection title="Ask a doctor" content={drugDetail.ask_doctor} />
         <DetailSection title="Do not use" content={drugDetail.do_not_use} />
-        <DetailSection title="Questions?" content={drugDetail.questions} />
       </Grid>
+      <h4>{drugDetail.questions} </h4>
     </div>
   );
 };
