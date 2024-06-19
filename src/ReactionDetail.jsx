@@ -8,6 +8,9 @@ import {
   Typography,
   CardMedia,
   Grid,
+  AppBar,
+  Toolbar,
+  Avatar
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -59,27 +62,52 @@ const ReactionDetail = () => {
  
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      {/* Barra de Navegación */}
+      <AppBar position="fixed" sx={{ bgcolor: '#eeeeee', color: '#212121', zIndex: 1300 }}>
+        <Toolbar>
+          {/* Botón volver */}
+          <Typography component="div" sx={{ marginRight: 'auto', display: 'flex', alignItems: 'center' }}>
+            <Link to="/food-search" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                startIcon={<ArrowBackIcon />}
+                sm={{backgroundColor:'gray'}}
+                sx={{ 
+                  backgroundColor: "#7490FF",
+                }}
+              >
+                Back
+              </Button>
+            </Link>
+          </Typography>
+          <Typography>
+            {/* Espacio entre elementos */}
+          </Typography>
+          <Typography component="div" sx={{  display: 'flex', alignItems: 'center' }}>
+          <Avatar
+              alt="Lupa"
+              src="/lupa.png"
+              sx={{ width: 30, height: 30, marginRight: 1 }}
+            />
+            <Link to="/" color="inherit">
+              <h3>API Search</h3>
+            </Link>
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
-      {/* Botón volver */}
-      <Link to="/food-search" style={{ textDecoration: "none" }}>
-        <Button
-          variant="contained"
-          startIcon={<ArrowBackIcon />}
-          style={{ position: "absolute", top: 10, left: 10, background: "#7490FF" }}
+      {/*Título */}
+      <div style={{ marginTop: "64px", position: "relative" }}>
+        <h1
+          style={{
+            color: "#7490FF",
+            textAlign: "center",
+            margin: "20px 0",
+          }}
         >
-          Back
-        </Button>
-      </Link>
-
-      <h1
-        style={{
-          color: "#7490FF",
-          textAlign: "center",
-          margin: "20px 0",
-        }}
-      >
-        {reactionDetail.reactions.join(", ")}
-      </h1>
+          {reactionDetail.reactions.join(", ")}
+        </h1>
+      </div>
     
       {/* Secciones con los detalles de la reacción */}
       <Grid container spacing={2}>
